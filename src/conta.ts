@@ -1,7 +1,7 @@
 import { Credito } from "./credito";
 import { Debito } from "./debito";
 
-export abstract class conta {
+export abstract class Conta {
     protected debitos: Debito[] = [];
     protected creditos: Credito[] = [];
     protected saldo: number = 0;

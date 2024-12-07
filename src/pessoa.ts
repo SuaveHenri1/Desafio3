@@ -1,5 +1,6 @@
 import { IUsuario } from "./IUsuario";
 import { Endereco } from "./endereco";
+import { Conta } from "./conta";
 
 
 export abstract class Pessoa implements IUsuario {
@@ -16,6 +17,7 @@ export abstract class Pessoa implements IUsuario {
 
 export class Cliente extends Pessoa {
     enderecos: Endereco[] = [];
+    contas: Conta[] = [];
 
     adicionarEndereco(endereco: Endereco): void {
         this.enderecos.push(endereco);
@@ -24,6 +26,16 @@ export class Cliente extends Pessoa {
     listarEnderecos(): void {
         console.log("Endereços");
         this.enderecos.forEach((endereco, index) => console.log(`${index + 1}. ${endereco.toString()}`));
+    }
+
+    adicionarConta(conta: Conta): void {
+        this.contas.push(conta);
+        console.log(`Conta ${conta.numero} adicionada ao cliente ${this.nome}.`);
+    }
+
+    listaContas(): void {
+        console.log(`Contas do cliente ${this.nome}:`);
+        this.contas.forEach((conta, index) => console.log(`${index + 1}. Conta Numero: ${conta.numero}`));
     }
 }
 

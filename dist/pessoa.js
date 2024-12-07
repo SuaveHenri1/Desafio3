@@ -16,6 +16,7 @@ class Cliente extends Pessoa {
     constructor() {
         super(...arguments);
         this.enderecos = [];
+        this.contas = [];
     }
     adicionarEndereco(endereco) {
         this.enderecos.push(endereco);
@@ -23,6 +24,14 @@ class Cliente extends Pessoa {
     listarEnderecos() {
         console.log("Endereços");
         this.enderecos.forEach((endereco, index) => console.log(`${index + 1}. ${endereco.toString()}`));
+    }
+    adicionarConta(conta) {
+        this.contas.push(conta);
+        console.log(`Conta ${conta.numero} adicionada ao cliente ${this.nome}.`);
+    }
+    listaContas() {
+        console.log(`Contas do cliente ${this.nome}:`);
+        this.contas.forEach((conta, index) => console.log(`${index + 1}. Conta Numero: ${conta.numero}`));
     }
 }
 exports.Cliente = Cliente;
